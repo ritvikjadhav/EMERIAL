@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppointmentRouteImport } from './routes/appointment'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as CollectionsRouteImport } from './routes/collections'
+import { Route as CraftRouteImport } from './routes/craft'
+import { Route as MaisonRouteImport } from './routes/maison'
+import { Route as WatchesIndexRouteImport } from './routes/watches.index'
+import { Route as WatchesSlugRouteImport } from './routes/watches.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppointmentRoute = AppointmentRouteImport.update({
+  id: '/appointment',
+  path: '/appointment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectionsRoute = CollectionsRouteImport.update({
+  id: '/collections',
+  path: '/collections',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CraftRoute = CraftRouteImport.update({
+  id: '/craft',
+  path: '/craft',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaisonRoute = MaisonRouteImport.update({
+  id: '/maison',
+  path: '/maison',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WatchesIndexRoute = WatchesIndexRouteImport.update({
+  id: '/watches/',
+  path: '/watches/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WatchesSlugRoute = WatchesSlugRouteImport.update({
+  id: '/watches/$slug',
+  path: '/watches/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/appointment': typeof AppointmentRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/collections': typeof CollectionsRoute
+  '/craft': typeof CraftRoute
+  '/maison': typeof MaisonRoute
+  '/watches/$slug': typeof WatchesSlugRoute
+  '/watches/': typeof WatchesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/appointment': typeof AppointmentRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/collections': typeof CollectionsRoute
+  '/craft': typeof CraftRoute
+  '/maison': typeof MaisonRoute
+  '/watches/$slug': typeof WatchesSlugRoute
+  '/watches': typeof WatchesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/appointment': typeof AppointmentRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/collections': typeof CollectionsRoute
+  '/craft': typeof CraftRoute
+  '/maison': typeof MaisonRoute
+  '/watches/$slug': typeof WatchesSlugRoute
+  '/watches/': typeof WatchesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/appointment'
+    | '/cart'
+    | '/checkout'
+    | '/collections'
+    | '/craft'
+    | '/maison'
+    | '/watches/$slug'
+    | '/watches/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/appointment'
+    | '/cart'
+    | '/checkout'
+    | '/collections'
+    | '/craft'
+    | '/maison'
+    | '/watches/$slug'
+    | '/watches'
+  id:
+    | '__root__'
+    | '/'
+    | '/appointment'
+    | '/cart'
+    | '/checkout'
+    | '/collections'
+    | '/craft'
+    | '/maison'
+    | '/watches/$slug'
+    | '/watches/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppointmentRoute: typeof AppointmentRoute
+  CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
+  CollectionsRoute: typeof CollectionsRoute
+  CraftRoute: typeof CraftRoute
+  MaisonRoute: typeof MaisonRoute
+  WatchesSlugRoute: typeof WatchesSlugRoute
+  WatchesIndexRoute: typeof WatchesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +156,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/appointment': {
+      id: '/appointment'
+      path: '/appointment'
+      fullPath: '/appointment'
+      preLoaderRoute: typeof AppointmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collections': {
+      id: '/collections'
+      path: '/collections'
+      fullPath: '/collections'
+      preLoaderRoute: typeof CollectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/craft': {
+      id: '/craft'
+      path: '/craft'
+      fullPath: '/craft'
+      preLoaderRoute: typeof CraftRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maison': {
+      id: '/maison'
+      path: '/maison'
+      fullPath: '/maison'
+      preLoaderRoute: typeof MaisonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/watches/': {
+      id: '/watches/'
+      path: '/watches'
+      fullPath: '/watches/'
+      preLoaderRoute: typeof WatchesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/watches/$slug': {
+      id: '/watches/$slug'
+      path: '/watches/$slug'
+      fullPath: '/watches/$slug'
+      preLoaderRoute: typeof WatchesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppointmentRoute: AppointmentRoute,
+  CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
+  CollectionsRoute: CollectionsRoute,
+  CraftRoute: CraftRoute,
+  MaisonRoute: MaisonRoute,
+  WatchesSlugRoute: WatchesSlugRoute,
+  WatchesIndexRoute: WatchesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
