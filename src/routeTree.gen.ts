@@ -10,12 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppointmentRouteImport } from './routes/appointment'
 import { Route as CollectionsRouteImport } from './routes/collections'
+import { Route as CraftRouteImport } from './routes/craft'
+import { Route as MaisonRouteImport } from './routes/maison'
 import { Route as WatchesIndexRouteImport } from './routes/watches.index'
+import { Route as WatchesSlugRouteImport } from './routes/watches.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppointmentRoute = AppointmentRouteImport.update({
+  id: '/appointment',
+  path: '/appointment',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CollectionsRoute = CollectionsRouteImport.update({
@@ -23,39 +32,92 @@ const CollectionsRoute = CollectionsRouteImport.update({
   path: '/collections',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CraftRoute = CraftRouteImport.update({
+  id: '/craft',
+  path: '/craft',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaisonRoute = MaisonRouteImport.update({
+  id: '/maison',
+  path: '/maison',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WatchesIndexRoute = WatchesIndexRouteImport.update({
   id: '/watches/',
   path: '/watches/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WatchesSlugRoute = WatchesSlugRouteImport.update({
+  id: '/watches/$slug',
+  path: '/watches/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/appointment': typeof AppointmentRoute
   '/collections': typeof CollectionsRoute
+  '/craft': typeof CraftRoute
+  '/maison': typeof MaisonRoute
+  '/watches/$slug': typeof WatchesSlugRoute
   '/watches/': typeof WatchesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/appointment': typeof AppointmentRoute
   '/collections': typeof CollectionsRoute
+  '/craft': typeof CraftRoute
+  '/maison': typeof MaisonRoute
+  '/watches/$slug': typeof WatchesSlugRoute
   '/watches': typeof WatchesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/appointment': typeof AppointmentRoute
   '/collections': typeof CollectionsRoute
+  '/craft': typeof CraftRoute
+  '/maison': typeof MaisonRoute
+  '/watches/$slug': typeof WatchesSlugRoute
   '/watches/': typeof WatchesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/collections' | '/watches/'
+  fullPaths:
+    | '/'
+    | '/appointment'
+    | '/collections'
+    | '/craft'
+    | '/maison'
+    | '/watches/$slug'
+    | '/watches/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/collections' | '/watches'
-  id: '__root__' | '/' | '/collections' | '/watches/'
+  to:
+    | '/'
+    | '/appointment'
+    | '/collections'
+    | '/craft'
+    | '/maison'
+    | '/watches/$slug'
+    | '/watches'
+  id:
+    | '__root__'
+    | '/'
+    | '/appointment'
+    | '/collections'
+    | '/craft'
+    | '/maison'
+    | '/watches/$slug'
+    | '/watches/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppointmentRoute: typeof AppointmentRoute
   CollectionsRoute: typeof CollectionsRoute
+  CraftRoute: typeof CraftRoute
+  MaisonRoute: typeof MaisonRoute
+  WatchesSlugRoute: typeof WatchesSlugRoute
   WatchesIndexRoute: typeof WatchesIndexRoute
 }
 
@@ -68,11 +130,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/appointment': {
+      id: '/appointment'
+      path: '/appointment'
+      fullPath: '/appointment'
+      preLoaderRoute: typeof AppointmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/collections': {
       id: '/collections'
       path: '/collections'
       fullPath: '/collections'
       preLoaderRoute: typeof CollectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/craft': {
+      id: '/craft'
+      path: '/craft'
+      fullPath: '/craft'
+      preLoaderRoute: typeof CraftRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maison': {
+      id: '/maison'
+      path: '/maison'
+      fullPath: '/maison'
+      preLoaderRoute: typeof MaisonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/watches/': {
@@ -82,12 +165,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WatchesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/watches/$slug': {
+      id: '/watches/$slug'
+      path: '/watches/$slug'
+      fullPath: '/watches/$slug'
+      preLoaderRoute: typeof WatchesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppointmentRoute: AppointmentRoute,
   CollectionsRoute: CollectionsRoute,
+  CraftRoute: CraftRoute,
+  MaisonRoute: MaisonRoute,
+  WatchesSlugRoute: WatchesSlugRoute,
   WatchesIndexRoute: WatchesIndexRoute,
 }
 export const routeTree = rootRouteImport
