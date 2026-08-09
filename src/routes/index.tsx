@@ -162,25 +162,6 @@ function Home() {
         </div>
       </section>
 
-      {/* FEATURED */}
-      <section className="mx-auto max-w-7xl px-6 py-32 md:px-10 md:py-44">
-        <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2 className="font-display text-4xl md:text-5xl">Featured timepieces</h2>
-            <Link to="/watches" className="text-[0.55rem] tracking-luxe text-emerald-light">
-              View all
-            </Link>
-          </div>
-        </Reveal>
-        <div className="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((watch, i) => (
-            <Reveal key={watch.slug} delay={i * 90}>
-              <WatchCard watch={watch} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* CRAFT PREVIEW */}
       <section className="relative overflow-hidden bg-obsidian">
         <img
