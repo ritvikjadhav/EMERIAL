@@ -7,7 +7,7 @@ import regaliaPearl from "@/assets/w-regalia-pearl.jpg";
 import regaliaSapphire from "@/assets/w-regalia-sapphire.jpg";
 import apexOnyx from "@/assets/w-apex-onyx.jpg";
 import apexFury from "@/assets/w-apex-fury.jpg";
-import apexCerulean from "@/assets/w-apex-cerulean.jpg";
+import apexCerulean from "@/assets/w-apex-cerulean.png";
 import collectionAbyss from "@/assets/collection-abyss.jpg";
 import collectionRegalia from "@/assets/collection-regalia.jpg";
 import collectionApex from "@/assets/collection-apex.jpg";
